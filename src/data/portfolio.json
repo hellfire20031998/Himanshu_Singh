@@ -65,7 +65,13 @@
           "Reviewing pull requests and upholding code quality standards."
         ],
         "metrics": [
-          { "label": "API performance improvement", "value": 20, "color": "rgba(59, 130, 246, 0.7)" }
+          { "label": "API performance improvement", "value": 20, "color": "rgba(59, 130, 246, 0.7)" },
+          {
+            "label": "Full-stack delivery focus",
+            "value": 85,
+            "color": "rgba(16, 185, 129, 0.7)",
+            "customLabel": "Next.js + Spring Boot APIs"
+          }
         ]
       },
       {
@@ -80,7 +86,20 @@
           "Increased throughput and lowered database load with in-memory and distributed caching for high-frequency paths.",
           "Contributed to backend architecture for reliable inter-service communication and data consistency."
         ],
-        "metrics": []
+        "metrics": [
+          {
+            "label": "High-traffic path caching",
+            "value": 78,
+            "color": "rgba(239, 68, 68, 0.7)",
+            "customLabel": "Redis + in-memory (hot paths)"
+          },
+          {
+            "label": "API surface (business domains)",
+            "value": 92,
+            "color": "rgba(59, 130, 246, 0.7)",
+            "customLabel": "CRM · settlement · logistics"
+          }
+        ]
       },
       {
         "id": "otusone",
@@ -116,7 +135,26 @@
           "Real-time video interviews via WebRTC and WebSocket signaling; Razorpay for payments.",
           "Redis caching for faster responses and better overall performance."
         ],
-        "metrics": []
+        "metrics": [
+          {
+            "label": "Multi-tenant & isolation",
+            "value": 94,
+            "color": "rgba(139, 92, 246, 0.7)",
+            "customLabel": "Tenant-scoped ATS design"
+          },
+          {
+            "label": "Real-time interviews",
+            "value": 88,
+            "color": "rgba(59, 130, 246, 0.7)",
+            "customLabel": "WebRTC + WebSocket signaling"
+          },
+          {
+            "label": "Caching layer",
+            "value": 82,
+            "color": "rgba(16, 185, 129, 0.7)",
+            "customLabel": "Redis for API latency"
+          }
+        ]
       },
       {
         "id": "food",
@@ -131,7 +169,19 @@
           "Optimized MySQL and Redis caching—~30% better data retrieval performance."
         ],
         "metrics": [
-          { "label": "Data retrieval performance", "value": 30, "color": "rgba(16, 185, 129, 0.7)" }
+          { "label": "Data retrieval performance", "value": 30, "color": "rgba(16, 185, 129, 0.7)" },
+          {
+            "label": "Async order pipeline",
+            "value": 86,
+            "color": "rgba(249, 115, 22, 0.7)",
+            "customLabel": "Kafka events & notifications"
+          },
+          {
+            "label": "Payments integration",
+            "value": 90,
+            "color": "rgba(59, 130, 246, 0.7)",
+            "customLabel": "Stripe checkout flow"
+          }
         ]
       },
       {
@@ -146,7 +196,26 @@
           "WebRTC audio/video with STOMP signaling across networks.",
           "Deployed full stack (Spring Boot, MongoDB, Next.js) on Vercel, AWS, and Atlas."
         ],
-        "metrics": []
+        "metrics": [
+          {
+            "label": "Live messaging stack",
+            "value": 91,
+            "color": "rgba(59, 130, 246, 0.7)",
+            "customLabel": "1:1 & groups · STOMP/SockJS"
+          },
+          {
+            "label": "Auth & sessions",
+            "value": 89,
+            "color": "rgba(16, 185, 129, 0.7)",
+            "customLabel": "JWT · expiry · auto re-auth"
+          },
+          {
+            "label": "Media calls",
+            "value": 84,
+            "color": "rgba(139, 92, 246, 0.7)",
+            "customLabel": "WebRTC + STOMP signaling"
+          }
+        ]
       }
     ],
     "achievements": [
