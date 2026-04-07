@@ -3,11 +3,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Chart from 'chart.js/auto';
 
-/** Update these when you publish your profiles (leave '' to show plain text). */
 const SOCIAL = {
-  linkedin: '',
-  github: '',
-  leetcode: '',
+  linkedin: 'https://www.linkedin.com/in/himanshu-singh-6ab01b179/',
+  github: 'https://github.com/hellfire20031998',
+  leetcode: 'https://leetcode.com/u/tonu8707/',
 };
 
 const resumeData = {
@@ -531,7 +530,7 @@ const SummarySection = () => (
         Email me
       </a>
       <a
-        href={`tel:${resumeData.contact.phone.replace(/\s/g, '')}`}
+        href={`tel:${resumeData.contact.phone.replace(/[\s-]/g, '')}`}
         className="inline-flex items-center rounded-full border border-slate-300 bg-white text-slate-800 px-5 py-2.5 text-sm font-medium hover:bg-stone-50 transition"
       >
         Call
@@ -634,7 +633,7 @@ const Footer = () => (
           {resumeData.contact.email}
         </a>
         <span className="mx-2 text-stone-500">|</span>
-        <a href={`tel:${resumeData.contact.phone.replace(/\s/g, '')}`} className="hover:text-white">
+        <a href={`tel:${resumeData.contact.phone.replace(/[\s-]/g, '')}`} className="hover:text-white">
           {resumeData.contact.phone}
         </a>
       </p>
