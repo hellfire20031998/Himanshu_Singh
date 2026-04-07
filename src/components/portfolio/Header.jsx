@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { site } from '@/data/resumeData';
 import { headerMotion } from '@/lib/motion';
 
 export function Header() {
@@ -64,7 +65,7 @@ export function Header() {
               href="#summary"
               className="text-xl font-bold text-slate-800 tracking-tight transition-colors duration-200 hover:text-slate-950"
             >
-              Himanshu Singh
+              {site.displayName}
             </a>
           </div>
           <div className="hidden md:block">{navLinks}</div>

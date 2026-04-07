@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LenisRoot } from "@/components/providers/LenisRoot";
+import portfolio from "@/data/portfolio.json";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,9 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Himanshu Singh | Backend Engineer",
-  description:
-    "Backend engineer specializing in Java, Spring Boot, microservices, Redis, Kafka, and distributed systems. Portfolio and resume.",
+  title: portfolio.site.title,
+  description: portfolio.site.description,
 };
 
 export default function RootLayout({
