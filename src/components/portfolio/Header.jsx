@@ -5,6 +5,8 @@ import { headerMotion } from '@/lib/motion';
 
 const linkClass =
   'nav-link text-zinc-400 px-3 py-3 sm:py-2 rounded-lg text-sm font-medium transition-colors duration-200 min-h-11 sm:min-h-0 inline-flex items-center';
+const resumeLinkClass =
+  'inline-flex items-center justify-center px-3 py-3 sm:py-2 rounded-lg text-sm font-semibold min-h-11 sm:min-h-0 text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-200 shadow-[0_8px_20px_rgba(124,58,237,0.28)]';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,6 +30,25 @@ export function Header() {
       </a>
       <a href="#contact" onClick={() => setIsMenuOpen(false)} className={linkClass}>
         Contact
+      </a>
+      <a
+        href="/Himanshu-Singh-Resume.pdf"
+        download="Himanshu-Singh-Resume.pdf"
+        onClick={() => setIsMenuOpen(false)}
+        className={resumeLinkClass}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          className="h-4 w-4 mr-1.5"
+          aria-hidden
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1" />
+        </svg>
+        Resume
       </a>
     </div>
   );
