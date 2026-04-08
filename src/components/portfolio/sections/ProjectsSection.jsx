@@ -5,7 +5,11 @@ import { TabbedPanel } from '../TabbedPanel';
 
 export function ProjectsSection() {
   return (
-    <motion.section id="projects" className="mb-20" {...sectionReveal}>
+    <motion.section
+      id="projects"
+      className="mb-16 sm:mb-20 scroll-mt-[calc(3.5rem+env(safe-area-inset-top))] sm:scroll-mt-20"
+      {...sectionReveal}
+    >
       <TabbedPanel
         variant="project"
         items={resumeData.projects}

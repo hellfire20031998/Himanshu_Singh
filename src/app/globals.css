@@ -18,8 +18,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Prevent horizontal scroll; respect notched devices */
+html {
+  overflow-x: clip;
+}
+
 body {
   min-height: 100vh;
+  min-height: 100dvh;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   background-color: var(--background);
   background-image:
     radial-gradient(ellipse 130% 90% at 50% -35%, rgba(139, 92, 246, 0.22), transparent 55%),
@@ -28,6 +37,14 @@ body {
   background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (max-width: 639px) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 /* Lenis: avoid native smooth-scroll fighting the library */

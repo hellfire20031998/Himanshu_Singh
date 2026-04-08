@@ -57,15 +57,15 @@ export function MetricChart({ metric }) {
 
   return (
     <motion.div
-      className="rounded-xl p-4 border border-white/[0.08] bg-black/25 transition-all duration-300 hover:border-violet-500/20 hover:bg-black/35"
+      className="rounded-lg sm:rounded-xl p-3 sm:p-4 border border-white/[0.08] bg-black/25 transition-all duration-300 hover:border-violet-500/20 hover:bg-black/35 min-w-0"
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35 }}
     >
-      <p className="text-sm font-semibold text-zinc-200 mb-2">{metric.label}</p>
+      <p className="text-xs sm:text-sm font-semibold text-zinc-200 mb-2 text-pretty leading-snug">{metric.label}</p>
       <div className="metric-chart-container">
-        <canvas ref={chartRef} />
+        <canvas ref={chartRef} className="max-w-full" />
       </div>
     </motion.div>
   );

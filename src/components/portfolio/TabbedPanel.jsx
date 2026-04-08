@@ -5,7 +5,7 @@ import { MetricChart } from './MetricChart';
 const panelTransition = { duration: 0.3, ease: [0.22, 1, 0.36, 1] };
 
 const glassPanel =
-  'rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-6 md:p-8 backdrop-blur-xl min-h-[320px] shadow-[0_4px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-violet-500/15';
+  'rounded-xl sm:rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-4 sm:p-6 md:p-8 backdrop-blur-xl min-h-0 sm:min-h-[260px] md:min-h-[300px] lg:min-h-[320px] shadow-[0_4px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-violet-500/15 w-full min-w-0';
 
 function githubLinkLabel(url, index) {
   try {
@@ -32,13 +32,13 @@ function ProjectLinks({ githubLinks, liveLink }) {
   if (!live && repos.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap items-center gap-2 mb-6">
+    <div className="flex flex-wrap items-stretch sm:items-center gap-2 mb-5 sm:mb-6">
       {live ? (
         <a
           href={live}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/30 px-3 py-1.5 text-sm font-medium hover:bg-emerald-500/25 transition-colors duration-200"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/30 px-3 py-2.5 sm:py-1.5 text-sm font-medium hover:bg-emerald-500/25 transition-colors duration-200 min-h-11 sm:min-h-0"
         >
           <span aria-hidden>↗</span>
           Live demo
@@ -50,10 +50,12 @@ function ProjectLinks({ githubLinks, liveLink }) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] text-zinc-200 border border-white/10 px-3 py-1.5 text-sm font-medium hover:bg-white/[0.1] hover:border-violet-500/30 transition-all duration-200"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full bg-white/[0.06] text-zinc-200 border border-white/10 px-3 py-2.5 sm:py-1.5 text-xs sm:text-sm font-medium hover:bg-white/[0.1] hover:border-violet-500/30 transition-all duration-200 max-w-full min-h-11 sm:min-h-0 break-all sm:break-normal"
         >
-          <span className="text-xs font-semibold text-violet-400/90">GH</span>
-          {githubLinkLabel(url, i)}
+          <span className="text-xs font-semibold text-violet-400/90 shrink-0">GH</span>
+          <span className="truncate sm:overflow-visible sm:whitespace-normal text-left">
+            {githubLinkLabel(url, i)}
+          </span>
         </a>
       ))}
     </div>
@@ -67,7 +69,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
   return (
     <>
       <motion.h2
-        className="text-3xl font-bold text-white mb-2 text-center"
+        className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1"
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -76,7 +78,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
         {sectionTitle}
       </motion.h2>
       <motion.p
-        className="text-center text-zinc-500 mb-10 max-w-2xl mx-auto"
+        className="text-center text-zinc-500 mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base px-1 text-pretty"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -84,9 +86,9 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
       >
         {sectionSubtitle}
       </motion.p>
-      <div className="md:flex md:gap-8">
-        <div className="md:w-1/3 mb-6 md:mb-0">
-          <ul className="flex flex-col gap-2">
+      <div className="flex flex-col md:flex-row md:gap-6 lg:gap-8 min-w-0">
+        <div className="w-full md:w-1/3 mb-4 md:mb-0 min-w-0">
+          <ul className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-1 md:pb-0 -mx-1 px-1 md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none scrollbar-thin [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.15)_transparent]">
             {items.map((item) => {
               const tabPrimary = variant === 'project' ? item.shortName : item.company;
               const tabSecondary =
@@ -94,22 +96,22 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                   ? item.tagline
                   : [item.role, item.period].filter(Boolean).join(' · ');
               return (
-                <li key={item.id}>
+                <li key={item.id} className="snap-start shrink-0 w-[min(100%,18rem)] md:w-full md:shrink">
                   <motion.button
                     type="button"
                     onClick={() => setActiveId(item.id)}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className={`tab w-full text-left px-4 py-3 rounded-xl font-medium text-zinc-400 hover:bg-white/[0.06] transition-colors duration-200 ${activeId === item.id ? 'active' : ''}`}
+                    className={`tab w-full text-left px-3 sm:px-4 py-3.5 sm:py-3 rounded-xl font-medium text-zinc-400 hover:bg-white/[0.06] transition-colors duration-200 min-h-[3.25rem] md:min-h-0 ${activeId === item.id ? 'active' : ''}`}
                   >
                     <span
-                      className={`block text-sm font-semibold ${activeId === item.id ? 'text-white' : 'text-zinc-200'}`}
+                      className={`block text-sm font-semibold truncate ${activeId === item.id ? 'text-white' : 'text-zinc-200'}`}
                     >
                       {tabPrimary}
                     </span>
                     {tabSecondary ? (
                       <span
-                        className={`block text-xs font-normal mt-0.5 ${activeId === item.id ? 'text-violet-200/80' : 'text-zinc-500'}`}
+                        className={`block text-[11px] sm:text-xs font-normal mt-0.5 line-clamp-2 ${activeId === item.id ? 'text-violet-200/80' : 'text-zinc-500'}`}
                       >
                         {tabSecondary}
                       </span>
@@ -120,38 +122,43 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
             })}
           </ul>
         </div>
-        <div className={`md:w-2/3 ${glassPanel}`}>
+        <div className={`md:w-2/3 min-w-0 flex-1 ${glassPanel}`}>
           <AnimatePresence mode="wait">
             {active && (
               <motion.div
                 key={activeId}
-                initial={{ opacity: 0, x: 18 }}
+                initial={{ opacity: 0, x: 12 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -12 }}
+                exit={{ opacity: 0, x: -8 }}
                 transition={panelTransition}
+                className="min-w-0"
               >
                 {variant === 'work' ? (
                   <>
-                    <h3 className="text-2xl font-bold text-white mb-1">{active.role}</h3>
-                    <p className="text-sm font-medium text-violet-400/90 mb-1">{active.company}</p>
-                    <p className="text-xs text-zinc-500 mb-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 text-pretty">
+                      {active.role}
+                    </h3>
+                    <p className="text-sm font-medium text-violet-400/90 mb-1 break-words">{active.company}</p>
+                    <p className="text-xs text-zinc-500 mb-4 break-words">
                       {[active.period, active.stack].filter(Boolean).join(' · ')}
                     </p>
                   </>
                 ) : (
                   <>
-                    <h3 className="text-2xl font-bold text-white mb-2 leading-snug">{active.title}</h3>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-snug text-pretty break-words">
+                      {active.title}
+                    </h3>
                     {active.summary ? (
-                      <p className="text-sm text-zinc-400 leading-relaxed mb-4 border-l-2 border-violet-500/40 pl-3">
+                      <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-3 sm:mb-4 border-l-2 border-violet-500/40 pl-3 text-pretty">
                         {active.summary}
                       </p>
                     ) : null}
                     <p
-                      className={`text-sm font-medium ${active.summary ? 'text-zinc-500' : 'text-zinc-400'} ${projectHasLinks(active) ? 'mb-3' : 'mb-6'}`}
+                      className={`text-xs sm:text-sm font-medium ${active.summary ? 'text-zinc-500' : 'text-zinc-400'} ${projectHasLinks(active) ? 'mb-3' : 'mb-5 sm:mb-6'} break-words`}
                     >
                       {active.summary ? (
                         <>
-                          <span className="text-zinc-600 font-semibold uppercase tracking-wider text-xs mr-2">
+                          <span className="text-zinc-600 font-semibold uppercase tracking-wider text-[10px] sm:text-xs mr-2">
                             Stack
                           </span>
                           {active.stack}
@@ -163,7 +170,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                     <ProjectLinks githubLinks={active.githubLinks} liveLink={active.liveLink} />
                   </>
                 )}
-                <ul className="list-disc pl-5 space-y-2 text-zinc-400 mb-6 marker:text-violet-500/80">
+                <ul className="list-disc pl-4 sm:pl-5 space-y-2.5 text-zinc-400 mb-5 sm:mb-6 marker:text-violet-500/80 text-sm sm:text-base [word-break:break-word]">
                   {active.bullets.map((b, i) => (
                     <motion.li
                       key={i}
@@ -176,7 +183,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                   ))}
                 </ul>
                 {active.metrics?.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {active.metrics.map((metric) => (
                       <MetricChart key={metric.label} metric={metric} />
                     ))}
