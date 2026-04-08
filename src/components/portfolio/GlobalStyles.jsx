@@ -31,7 +31,7 @@ export function GlobalStyles() {
         transition: color 0.2s ease;
       }
       .nav-link:hover {
-        color: #1e293b;
+        color: #fafafa;
       }
       .tag {
         transition: all 0.2s ease-in-out;
@@ -39,12 +39,13 @@ export function GlobalStyles() {
       .tag:hover {
         transform: translateY(-2px);
         box-shadow:
-          0 4px 6px -1px rgb(0 0 0 / 0.08),
-          0 2px 4px -2px rgb(0 0 0 / 0.06);
+          0 8px 24px -4px rgba(139, 92, 246, 0.25),
+          0 0 0 1px rgba(255, 255, 255, 0.06);
       }
       .tab.active {
-        background-color: #1e293b;
+        background: linear-gradient(135deg, #7c3aed 0%, #c026d3 50%, #db2777 100%);
         color: #ffffff;
+        box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
       }
     `}</style>
   );

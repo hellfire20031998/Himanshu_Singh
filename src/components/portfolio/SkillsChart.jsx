@@ -2,6 +2,9 @@ import { useEffect, useRef, useCallback } from 'react';
 import Chart from 'chart.js/auto';
 import { resumeData, SKILL_CHART_COLORS } from '@/data/resumeData';
 
+const tickColor = '#a1a1aa';
+const gridColor = 'rgba(255, 255, 255, 0.06)';
+
 export function SkillsChart({ onBarClick }) {
   const chartRef = useRef(null);
   const onBarClickStable = useCallback(
@@ -30,6 +33,7 @@ export function SkillsChart({ onBarClick }) {
             backgroundColor: SKILL_CHART_COLORS.bg.slice(0, n),
             borderColor: SKILL_CHART_COLORS.border.slice(0, n),
             borderWidth: 1,
+            borderRadius: 6,
           },
         ],
       },
@@ -39,8 +43,17 @@ export function SkillsChart({ onBarClick }) {
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { beginAtZero: true, grid: { display: false }, ticks: { precision: 0 } },
-          y: { grid: { display: false } },
+          x: {
+            beginAtZero: true,
+            grid: { color: gridColor },
+            ticks: { color: tickColor, precision: 0, font: { size: 11 } },
+            border: { display: false },
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: tickColor, font: { size: 11 } },
+            border: { display: false },
+          },
         },
         onClick: (_event, elements) => {
           if (elements.length > 0) {

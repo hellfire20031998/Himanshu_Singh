@@ -4,6 +4,9 @@ import { MetricChart } from './MetricChart';
 
 const panelTransition = { duration: 0.3, ease: [0.22, 1, 0.36, 1] };
 
+const glassPanel =
+  'rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-6 md:p-8 backdrop-blur-xl min-h-[320px] shadow-[0_4px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-violet-500/15';
+
 function githubLinkLabel(url, index) {
   try {
     const parts = new URL(url).pathname.replace(/\/$/, '').split('/').filter(Boolean);
@@ -35,7 +38,7 @@ function ProjectLinks({ githubLinks, liveLink }) {
           href={live}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 text-emerald-800 border border-emerald-600/20 px-3 py-1.5 text-sm font-medium hover:bg-emerald-600/15 transition-colors duration-200"
+          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/30 px-3 py-1.5 text-sm font-medium hover:bg-emerald-500/25 transition-colors duration-200"
         >
           <span aria-hidden>↗</span>
           Live demo
@@ -47,9 +50,9 @@ function ProjectLinks({ githubLinks, liveLink }) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full bg-slate-800/5 text-slate-800 border border-slate-300/80 px-3 py-1.5 text-sm font-medium hover:bg-slate-800/10 transition-colors duration-200"
+          className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] text-zinc-200 border border-white/10 px-3 py-1.5 text-sm font-medium hover:bg-white/[0.1] hover:border-violet-500/30 transition-all duration-200"
         >
-          <span className="text-xs font-semibold text-slate-500">GH</span>
+          <span className="text-xs font-semibold text-violet-400/90">GH</span>
           {githubLinkLabel(url, i)}
         </a>
       ))}
@@ -64,7 +67,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
   return (
     <>
       <motion.h2
-        className="text-3xl font-bold text-slate-900 mb-2 text-center"
+        className="text-3xl font-bold text-white mb-2 text-center"
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -73,7 +76,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
         {sectionTitle}
       </motion.h2>
       <motion.p
-        className="text-center text-slate-500 mb-8 max-w-2xl mx-auto"
+        className="text-center text-zinc-500 mb-10 max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -97,16 +100,16 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                     onClick={() => setActiveId(item.id)}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className={`tab w-full text-left px-4 py-3 rounded-xl font-medium text-slate-600 hover:bg-slate-200/80 transition-colors duration-200 ${activeId === item.id ? 'active' : ''}`}
+                    className={`tab w-full text-left px-4 py-3 rounded-xl font-medium text-zinc-400 hover:bg-white/[0.06] transition-colors duration-200 ${activeId === item.id ? 'active' : ''}`}
                   >
                     <span
-                      className={`block text-sm font-semibold ${activeId === item.id ? 'text-white' : 'text-slate-800'}`}
+                      className={`block text-sm font-semibold ${activeId === item.id ? 'text-white' : 'text-zinc-200'}`}
                     >
                       {tabPrimary}
                     </span>
                     {tabSecondary ? (
                       <span
-                        className={`block text-xs font-normal mt-0.5 ${activeId === item.id ? 'text-stone-200' : 'text-slate-500'}`}
+                        className={`block text-xs font-normal mt-0.5 ${activeId === item.id ? 'text-violet-200/80' : 'text-zinc-500'}`}
                       >
                         {tabSecondary}
                       </span>
@@ -117,7 +120,7 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
             })}
           </ul>
         </div>
-        <div className="md:w-2/3 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-stone-100 min-h-[320px] transition-shadow duration-300 hover:shadow-md">
+        <div className={`md:w-2/3 ${glassPanel}`}>
           <AnimatePresence mode="wait">
             {active && (
               <motion.div
@@ -129,24 +132,24 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
               >
                 {variant === 'work' ? (
                   <>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-1">{active.role}</h3>
-                    <p className="text-sm font-medium text-slate-500 mb-1">{active.company}</p>
-                    <p className="text-xs text-slate-500 mb-4">
+                    <h3 className="text-2xl font-bold text-white mb-1">{active.role}</h3>
+                    <p className="text-sm font-medium text-violet-400/90 mb-1">{active.company}</p>
+                    <p className="text-xs text-zinc-500 mb-4">
                       {[active.period, active.stack].filter(Boolean).join(' · ')}
                     </p>
                   </>
                 ) : (
                   <>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{active.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">{active.title}</h3>
                     <p
-                      className={`text-sm font-medium text-slate-600 ${projectHasLinks(active) ? 'mb-3' : 'mb-6'}`}
+                      className={`text-sm font-medium text-zinc-400 ${projectHasLinks(active) ? 'mb-3' : 'mb-6'}`}
                     >
                       {active.stack}
                     </p>
                     <ProjectLinks githubLinks={active.githubLinks} liveLink={active.liveLink} />
                   </>
                 )}
-                <ul className="list-disc pl-5 space-y-2 text-slate-600 mb-6">
+                <ul className="list-disc pl-5 space-y-2 text-zinc-400 mb-6 marker:text-violet-500/80">
                   {active.bullets.map((b, i) => (
                     <motion.li
                       key={i}

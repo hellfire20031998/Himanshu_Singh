@@ -17,26 +17,26 @@ export function SummarySection() {
   return (
     <motion.section
       id="summary"
-      className="text-center mb-16 pt-10 md:pt-14"
+      className="text-center mb-20 pt-8 md:pt-12"
       variants={heroContainer}
       initial="hidden"
       animate="show"
     >
       <motion.p
         variants={heroItem}
-        className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3"
+        className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-400/90 mb-4"
       >
         {resumeData.headlineTrack}
       </motion.p>
       <motion.h1
         variants={heroItem}
-        className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight"
+        className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-5 tracking-tight bg-gradient-to-br from-white via-zinc-100 to-zinc-500 bg-clip-text text-transparent"
       >
         {resumeData.headline}
       </motion.h1>
       <motion.p
         variants={heroItem}
-        className="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed mb-8"
+        className="max-w-3xl mx-auto text-lg text-zinc-400 leading-relaxed mb-10"
       >
         {resumeData.summary}
       </motion.p>
@@ -46,7 +46,7 @@ export function SummarySection() {
           onClick={handleCopyEmail}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center rounded-full bg-slate-800 text-white px-5 py-2.5 text-sm font-medium hover:bg-slate-700 transition-colors duration-200 cursor-pointer shadow-md shadow-slate-900/10"
+          className="inline-flex items-center rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-6 py-2.5 text-sm font-semibold shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-300 cursor-pointer"
         >
           Email me
         </motion.button>
@@ -54,7 +54,7 @@ export function SummarySection() {
           href={telHref(resumeData.contact.phone)}
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center rounded-full border border-slate-300 bg-white text-slate-800 px-5 py-2.5 text-sm font-medium hover:bg-stone-50 hover:border-slate-400/80 transition-all duration-200 shadow-sm"
+          className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.06] text-zinc-100 px-6 py-2.5 text-sm font-semibold backdrop-blur-sm hover:bg-white/[0.1] hover:border-white/25 transition-all duration-300"
         >
           Call
         </motion.a>
@@ -62,7 +62,7 @@ export function SummarySection() {
           href="#experience"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="inline-flex items-center rounded-full border border-transparent text-slate-600 px-5 py-2.5 text-sm font-medium hover:text-slate-900 transition-colors duration-200"
+          className="inline-flex items-center rounded-full text-zinc-400 px-6 py-2.5 text-sm font-medium hover:text-violet-300 transition-colors duration-200"
         >
           View experience →
         </motion.a>

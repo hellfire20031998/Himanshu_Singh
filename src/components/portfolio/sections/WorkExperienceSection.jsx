@@ -5,7 +5,7 @@ import { TabbedPanel } from '../TabbedPanel';
 
 export function WorkExperienceSection() {
   return (
-    <motion.section id="experience" className="mb-16" {...sectionReveal}>
+    <motion.section id="experience" className="mb-20" {...sectionReveal}>
       <TabbedPanel
         variant="work"
         items={resumeData.workExperience}

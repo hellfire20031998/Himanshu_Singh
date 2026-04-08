@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: portfolio.site.title,
   description: portfolio.site.description,
+  themeColor: "#06060a",
 };
 
 export default function RootLayout({

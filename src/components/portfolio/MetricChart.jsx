@@ -20,6 +20,7 @@ export function MetricChart({ metric }) {
             borderWidth: 0,
             barPercentage: 1.0,
             categoryPercentage: 1.0,
+            borderRadius: 4,
           },
         ],
       },
@@ -32,6 +33,12 @@ export function MetricChart({ metric }) {
           tooltip: {
             enabled: true,
             displayColors: false,
+            backgroundColor: 'rgba(24, 24, 27, 0.95)',
+            titleColor: '#fafafa',
+            bodyColor: '#e4e4e7',
+            borderColor: 'rgba(255,255,255,0.1)',
+            borderWidth: 1,
+            padding: 10,
             callbacks: {
               title: () => '',
               label: (context) => metric.customLabel || `${context.raw}%`,
@@ -50,13 +57,13 @@ export function MetricChart({ metric }) {
 
   return (
     <motion.div
-      className="bg-stone-50 rounded-lg p-4 border border-stone-100 transition-shadow duration-300 hover:shadow-sm"
+      className="rounded-xl p-4 border border-white/[0.08] bg-black/25 transition-all duration-300 hover:border-violet-500/20 hover:bg-black/35"
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35 }}
     >
-      <p className="text-sm font-semibold text-slate-700 mb-2">{metric.label}</p>
+      <p className="text-sm font-semibold text-zinc-200 mb-2">{metric.label}</p>
       <div className="metric-chart-container">
         <canvas ref={chartRef} />
       </div>

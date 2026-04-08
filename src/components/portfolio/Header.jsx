@@ -11,42 +11,42 @@ export function Header() {
       <a
         href="#summary"
         onClick={() => setIsMenuOpen(false)}
-        className="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        className="nav-link text-zinc-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
       >
         Summary
       </a>
       <a
         href="#skills"
         onClick={() => setIsMenuOpen(false)}
-        className="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        className="nav-link text-zinc-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
       >
         Skills
       </a>
       <a
         href="#experience"
         onClick={() => setIsMenuOpen(false)}
-        className="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        className="nav-link text-zinc-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
       >
         Experience
       </a>
       <a
         href="#projects"
         onClick={() => setIsMenuOpen(false)}
-        className="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        className="nav-link text-zinc-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
       >
         Projects
       </a>
       <a
         href="#achievements"
         onClick={() => setIsMenuOpen(false)}
-        className="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        className="nav-link text-zinc-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
       >
         Achievements
       </a>
       <a
         href="#contact"
         onClick={() => setIsMenuOpen(false)}
-        className="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        className="nav-link text-zinc-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
       >
         Contact
       </a>
@@ -55,7 +55,7 @@ export function Header() {
 
   return (
     <motion.header
-      className="bg-stone-100/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200/80 shadow-sm"
+      className="sticky top-0 z-50 border-b border-white/[0.08] bg-zinc-950/75 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.35)]"
       {...headerMotion}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
@@ -63,7 +63,7 @@ export function Header() {
           <div className="flex-shrink-0">
             <a
               href="#summary"
-              className="text-xl font-bold text-slate-800 tracking-tight transition-colors duration-200 hover:text-slate-950"
+              className="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent transition-opacity duration-200 hover:opacity-90"
             >
               {site.displayName}
             </a>
@@ -76,7 +76,7 @@ export function Header() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-slate-800 hover:bg-slate-200/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 transition-colors duration-200"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-zinc-300 hover:text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 transition-colors duration-200"
             >
               <span className="sr-only">{isMenuOpen ? 'Close menu' : 'Open menu'}</span>
               <svg
@@ -111,7 +111,7 @@ export function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden overflow-hidden border-t border-stone-200/80"
+            className="md:hidden overflow-hidden border-t border-white/[0.08] bg-zinc-950/90"
           >
             <div className="px-2 sm:px-3 pb-3">{navLinks}</div>
           </motion.div>
