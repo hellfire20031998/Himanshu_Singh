@@ -128,6 +128,11 @@
         "shortName": "HireFlow",
         "tagline": "Talent acquisition platform",
         "title": "HireFlow — Talent Acquisition Platform",
+        "githubLinks": [
+          "https://github.com/hellfire20031998/HireFlow",
+          "https://github.com/hellfire20031998/HireFlow-Client"
+        ],
+        "liveLink": "",
         "stack": "Java, Spring Boot, microservices, Next.js, PostgreSQL, MongoDB, AWS, Redis, WebRTC",
         "bullets": [
           "Architected a scalable multi-tenant ATS with strong tenant isolation and smooth onboarding.",
@@ -161,6 +166,11 @@
         "shortName": "Food ordering",
         "tagline": "Full-stack + Kafka events",
         "title": "Online Food Ordering Platform",
+        "githubLinks": [
+          "https://github.com/hellfire20031998/Online-Food-Ordering",
+          "https://github.com/hellfire20031998/Online-food-ordering-Frontend-"
+        ],
+        "liveLink": "",
         "stack": "Java, Spring Boot, MySQL, React, Redis, Kafka, Stripe",
         "bullets": [
           "Full-stack ordering flow with REST APIs for menus, cart, and checkout.",
@@ -189,6 +199,11 @@
         "shortName": "Real-time chat",
         "tagline": "WebSocket, WebRTC, AI assist",
         "title": "Real-Time Chat Application",
+        "githubLinks": [
+          "https://github.com/hellfire20031998/ChatApp",
+          "https://github.com/hellfire20031998/ChatApp-Ui"
+        ],
+        "liveLink": "https://chat-app-ui-rouge.vercel.app/",
         "stack": "Next.js, Spring Boot, WebSocket (STOMP), WebRTC, MongoDB",
         "bullets": [
           "1:1 and group chat with live updates via STOMP/SockJS; AI-assisted message suggestions.",

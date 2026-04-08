@@ -4,6 +4,59 @@ import { MetricChart } from './MetricChart';
 
 const panelTransition = { duration: 0.3, ease: [0.22, 1, 0.36, 1] };
 
+function githubLinkLabel(url, index) {
+  try {
+    const parts = new URL(url).pathname.replace(/\/$/, '').split('/').filter(Boolean);
+    if (parts.length >= 2) return `${parts[parts.length - 2]}/${parts[parts.length - 1]}`;
+    if (parts.length === 1) return parts[0];
+  } catch {
+    /* ignore */
+  }
+  return `GitHub ${index + 1}`;
+}
+
+function projectHasLinks(project) {
+  const live = typeof project.liveLink === 'string' && project.liveLink.trim();
+  const gh =
+    Array.isArray(project.githubLinks) &&
+    project.githubLinks.some((u) => typeof u === 'string' && String(u).trim());
+  return !!(live || gh);
+}
+
+function ProjectLinks({ githubLinks, liveLink }) {
+  const repos = Array.isArray(githubLinks) ? githubLinks.filter((u) => typeof u === 'string' && u.trim()) : [];
+  const live = typeof liveLink === 'string' ? liveLink.trim() : '';
+  if (!live && repos.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap items-center gap-2 mb-6">
+      {live ? (
+        <a
+          href={live}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 text-emerald-800 border border-emerald-600/20 px-3 py-1.5 text-sm font-medium hover:bg-emerald-600/15 transition-colors duration-200"
+        >
+          <span aria-hidden>↗</span>
+          Live demo
+        </a>
+      ) : null}
+      {repos.map((url, i) => (
+        <a
+          key={`${url}-${i}`}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-full bg-slate-800/5 text-slate-800 border border-slate-300/80 px-3 py-1.5 text-sm font-medium hover:bg-slate-800/10 transition-colors duration-200"
+        >
+          <span className="text-xs font-semibold text-slate-500">GH</span>
+          {githubLinkLabel(url, i)}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, variant }) {
   const [activeId, setActiveId] = useState(defaultId);
   const active = items.find((i) => i.id === activeId);
@@ -85,7 +138,12 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                 ) : (
                   <>
                     <h3 className="text-2xl font-bold text-slate-800 mb-2">{active.title}</h3>
-                    <p className="text-sm font-medium text-slate-600 mb-6">{active.stack}</p>
+                    <p
+                      className={`text-sm font-medium text-slate-600 ${projectHasLinks(active) ? 'mb-3' : 'mb-6'}`}
+                    >
+                      {active.stack}
+                    </p>
+                    <ProjectLinks githubLinks={active.githubLinks} liveLink={active.liveLink} />
                   </>
                 )}
                 <ul className="list-disc pl-5 space-y-2 text-slate-600 mb-6">
