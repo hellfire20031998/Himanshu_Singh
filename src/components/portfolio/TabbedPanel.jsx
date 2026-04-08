@@ -140,11 +140,25 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                   </>
                 ) : (
                   <>
-                    <h3 className="text-2xl font-bold text-white mb-2">{active.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2 leading-snug">{active.title}</h3>
+                    {active.summary ? (
+                      <p className="text-sm text-zinc-400 leading-relaxed mb-4 border-l-2 border-violet-500/40 pl-3">
+                        {active.summary}
+                      </p>
+                    ) : null}
                     <p
-                      className={`text-sm font-medium text-zinc-400 ${projectHasLinks(active) ? 'mb-3' : 'mb-6'}`}
+                      className={`text-sm font-medium ${active.summary ? 'text-zinc-500' : 'text-zinc-400'} ${projectHasLinks(active) ? 'mb-3' : 'mb-6'}`}
                     >
-                      {active.stack}
+                      {active.summary ? (
+                        <>
+                          <span className="text-zinc-600 font-semibold uppercase tracking-wider text-xs mr-2">
+                            Stack
+                          </span>
+                          {active.stack}
+                        </>
+                      ) : (
+                        active.stack
+                      )}
                     </p>
                     <ProjectLinks githubLinks={active.githubLinks} liveLink={active.liveLink} />
                   </>

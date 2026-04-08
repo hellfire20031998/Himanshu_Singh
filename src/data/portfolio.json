@@ -196,39 +196,42 @@
       },
       {
         "id": "chat",
-        "shortName": "Real-time chat",
-        "tagline": "WebSocket, WebRTC, AI assist",
-        "title": "Real-Time Chat Application",
+        "shortName": "ChatApp",
+        "tagline": "Full-stack · STOMP · WebRTC · Personal",
+        "title": "ChatApp — Real-Time Messaging Platform (Full-stack | Personal / Portfolio)",
+        "summary": "Full-stack chat application with direct and group messaging, live delivery/read receipts, typing indicators, JWT authentication with email verification, and WebRTC signaling—built with Spring Boot, MongoDB, Next.js, and WebSocket/STOMP.",
         "githubLinks": [
           "https://github.com/hellfire20031998/ChatApp",
           "https://github.com/hellfire20031998/ChatApp-Ui"
         ],
         "liveLink": "https://chat-app-ui-rouge.vercel.app/",
-        "stack": "Next.js, Spring Boot, WebSocket (STOMP), WebRTC, MongoDB",
+        "stack": "Spring Boot, Spring Security, MongoDB, WebSocket/STOMP, JWT, Next.js, TypeScript, Tailwind, Docker, Resend, WebRTC",
         "bullets": [
-          "1:1 and group chat with live updates via STOMP/SockJS; AI-assisted message suggestions.",
-          "JWT auth with secure sessions, token expiry, and auto re-authentication.",
-          "WebRTC audio/video with STOMP signaling across networks.",
-          "Deployed full stack (Spring Boot, MongoDB, Next.js) on Vercel, AWS, and Atlas."
+          "Architected and implemented a REST + WebSocket (STOMP/SockJS) backend in Java 17 / Spring Boot with JWT securing HTTP and WebSocket handshakes.",
+          "Designed MongoDB data models for users, chats, and messages; used a deterministic direct-chat key with unique indexing to prevent duplicate 1:1 threads under concurrency.",
+          "Built a Next.js (React + TypeScript) client with real-time UI updates, paginated message history, unread counts, optimistic sends, and group management flows.",
+          "Implemented end-to-end message lifecycle states (SENT → DELIVERED → READ) synchronized between persistence, realtime events, and UI indicators.",
+          "Added email verification for registration; integrated Resend (HTTPS API) for production email delivery where cloud SMTP ports are blocked, with SMTP fallback for local development.",
+          "Integrated WebRTC call flows by reusing the existing STOMP channel for signaling (invite/offer/answer/ICE/hangup)."
         ],
         "metrics": [
           {
-            "label": "Live messaging stack",
-            "value": 91,
+            "label": "Realtime messaging",
+            "value": 92,
             "color": "rgba(59, 130, 246, 0.7)",
-            "customLabel": "1:1 & groups · STOMP/SockJS"
+            "customLabel": "REST + STOMP/SockJS · lifecycle states"
           },
           {
-            "label": "Auth & sessions",
-            "value": 89,
+            "label": "Auth & delivery",
+            "value": 88,
             "color": "rgba(16, 185, 129, 0.7)",
-            "customLabel": "JWT · expiry · auto re-auth"
+            "customLabel": "JWT · email verify · Resend/SMTP"
           },
           {
-            "label": "Media calls",
-            "value": 84,
+            "label": "Calls & ops",
+            "value": 85,
             "color": "rgba(139, 92, 246, 0.7)",
-            "customLabel": "WebRTC + STOMP signaling"
+            "customLabel": "WebRTC over STOMP · Docker · Render/Vercel"
           }
         ]
       }
