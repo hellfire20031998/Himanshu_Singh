@@ -1,22 +1,12 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '@/data/resumeData';
-import { telHref } from '@/lib/contact';
+import { mailtoHref, telHref } from '@/lib/contact';
 import { heroContainer, heroItem } from '@/lib/motion';
 
 const btnBase =
   'inline-flex items-center justify-center rounded-full text-sm font-semibold transition-all duration-300 min-h-11 px-6 sm:min-h-10 w-full sm:w-auto';
 
 export function SummarySection() {
-  const handleCopyEmail = async () => {
-    const email = resumeData.contact.email;
-    try {
-      await navigator.clipboard.writeText(email);
-      window.alert(`${email}\n\nEmail copied to clipboard.`);
-    } catch {
-      window.alert(`Could not copy automatically.\n\nYour email: ${email}`);
-    }
-  };
-
   return (
     <motion.section
       id="summary"
@@ -47,15 +37,14 @@ export function SummarySection() {
         variants={heroItem}
         className="flex flex-col sm:flex-row flex-wrap justify-center items-stretch sm:items-center gap-3 max-w-md sm:max-w-none mx-auto"
       >
-        <motion.button
-          type="button"
-          onClick={handleCopyEmail}
+        <motion.a
+          href={mailtoHref(resumeData.contact.email)}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className={`${btnBase} bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:from-violet-500 hover:to-fuchsia-500 cursor-pointer`}
+          className={`${btnBase} bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:from-violet-500 hover:to-fuchsia-500`}
         >
           Email me
-        </motion.button>
+        </motion.a>
         <motion.a
           href={telHref(resumeData.contact.phone)}
           whileHover={{ scale: 1.02 }}
