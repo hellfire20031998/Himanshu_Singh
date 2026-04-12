@@ -39,24 +39,27 @@ export function SummarySection() {
       >
         <motion.a
           href={mailtoHref(resumeData.contact.email)}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.03, y: -1 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: 'spring', stiffness: 420, damping: 22 }}
           className={`${btnBase} bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:from-violet-500 hover:to-fuchsia-500`}
         >
           Email me
         </motion.a>
         <motion.a
           href={telHref(resumeData.contact.phone)}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.03, y: -1 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: 'spring', stiffness: 420, damping: 22 }}
           className={`${btnBase} border border-white/15 bg-white/[0.06] text-zinc-100 backdrop-blur-sm hover:bg-white/[0.1] hover:border-white/25`}
         >
           Call
         </motion.a>
         <motion.a
           href="#experience"
-          whileHover={{ scale: 1.01 }}
-          whileTap={{ scale: 0.99 }}
+          whileHover={{ scale: 1.02, y: -1 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 380, damping: 24 }}
           className={`${btnBase} border border-transparent text-zinc-400 font-medium hover:text-violet-300 sm:px-5`}
         >
           View experience →

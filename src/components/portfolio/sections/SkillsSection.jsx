@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { resumeData } from '@/data/resumeData';
-import { sectionReveal, staggerContainer, staggerItem } from '@/lib/motion';
+import { sectionReveal, sectionSubtitleMotion, sectionTitleMotion, staggerContainerDense, staggerItem } from '@/lib/motion';
 import { SkillsChart } from '../SkillsChart';
 
 const cardClass =
@@ -17,36 +17,24 @@ export function SkillsSection() {
       className={`mb-16 sm:mb-20 scroll-mt-[calc(3.5rem+env(safe-area-inset-top))] sm:scroll-mt-20 ${cardClass}`}
       {...sectionReveal}
     >
-      <motion.h2
-        className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-      >
+      <motion.h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1" {...sectionTitleMotion}>
         Skills
       </motion.h2>
-      <motion.p
-        className="text-center text-zinc-500 mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base px-1 text-pretty"
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.05 }}
-      >
+      <motion.p className="text-center text-zinc-500 mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base px-1 text-pretty" {...sectionSubtitleMotion}>
         Distribution by category. Click a bar to filter tags below; click the chart background to show all.
       </motion.p>
       <motion.div
         className="chart-container mb-6 sm:mb-8 rounded-lg sm:rounded-xl bg-black/20 border border-white/[0.06] p-1.5 sm:p-2 -mx-0.5 sm:mx-0"
-        initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.96, y: 14, filter: 'blur(6px)' }}
+        whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
+        transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
       >
         <SkillsChart onBarClick={setSelectedCategory} />
       </motion.div>
       <motion.div
         className="flex flex-wrap justify-center gap-2 sm:gap-2.5"
-        variants={staggerContainer}
+        variants={staggerContainerDense}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '-20px' }}

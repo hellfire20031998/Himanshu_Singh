@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MetricChart } from './MetricChart';
-
-const panelTransition = { duration: 0.3, ease: [0.22, 1, 0.36, 1] };
+import { bulletStaggerContainer, bulletStaggerItem, panelPhaseMotion, sectionSubtitleMotion, sectionTitleMotion } from '@/lib/motion';
 
 const glassPanel =
   'rounded-xl sm:rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-4 sm:p-6 md:p-8 backdrop-blur-xl min-h-0 sm:min-h-[260px] md:min-h-[300px] lg:min-h-[320px] shadow-[0_4px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:border-violet-500/15 w-full min-w-0';
@@ -32,7 +30,12 @@ function ProjectLinks({ githubLinks, liveLink }) {
   if (!live && repos.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap items-stretch sm:items-center gap-2 mb-5 sm:mb-6">
+    <motion.div
+      className="flex flex-wrap items-stretch sm:items-center gap-2 mb-5 sm:mb-6"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+    >
       {live ? (
         <a
           href={live}
@@ -58,7 +61,7 @@ function ProjectLinks({ githubLinks, liveLink }) {
           </span>
         </a>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -68,22 +71,10 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
 
   return (
     <>
-      <motion.h2
-        className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1"
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45 }}
-      >
+      <motion.h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1" {...sectionTitleMotion}>
         {sectionTitle}
       </motion.h2>
-      <motion.p
-        className="text-center text-zinc-500 mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base px-1 text-pretty"
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, delay: 0.06 }}
-      >
+      <motion.p className="text-center text-zinc-500 mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base px-1 text-pretty" {...sectionSubtitleMotion}>
         {sectionSubtitle}
       </motion.p>
       <div className="flex flex-col md:flex-row md:gap-6 lg:gap-8 min-w-0">
@@ -100,8 +91,9 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                   <motion.button
                     type="button"
                     onClick={() => setActiveId(item.id)}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    whileHover={{ scale: 1.02, x: 2 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 26 }}
                     className={`tab w-full text-left px-3 sm:px-4 py-3.5 sm:py-3 rounded-xl font-medium text-zinc-400 hover:bg-white/[0.06] transition-colors duration-200 min-h-[3.25rem] md:min-h-0 ${activeId === item.id ? 'active' : ''}`}
                   >
                     <span
@@ -127,10 +119,10 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
             {active && (
               <motion.div
                 key={activeId}
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -8 }}
-                transition={panelTransition}
+                initial={panelPhaseMotion.initial}
+                animate={panelPhaseMotion.animate}
+                exit={panelPhaseMotion.exit}
+                transition={panelPhaseMotion.transition}
                 className="min-w-0"
               >
                 {variant === 'work' ? (
@@ -170,25 +162,18 @@ export function TabbedPanel({ items, sectionTitle, sectionSubtitle, defaultId, v
                     <ProjectLinks githubLinks={active.githubLinks} liveLink={active.liveLink} />
                   </>
                 )}
-                <ul className="list-disc pl-4 sm:pl-5 space-y-2.5 text-zinc-400 mb-5 sm:mb-6 marker:text-violet-500/80 text-sm sm:text-base [word-break:break-word]">
+                <motion.ul
+                  className="list-disc pl-4 sm:pl-5 space-y-2.5 text-zinc-400 mb-5 sm:mb-6 marker:text-violet-500/80 text-sm sm:text-base [word-break:break-word]"
+                  variants={bulletStaggerContainer}
+                  initial="hidden"
+                  animate="show"
+                >
                   {active.bullets.map((b, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -6 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.04 * i, duration: 0.3 }}
-                    >
+                    <motion.li key={i} variants={bulletStaggerItem}>
                       {b}
                     </motion.li>
                   ))}
-                </ul>
-                {active.metrics?.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    {active.metrics.map((metric) => (
-                      <MetricChart key={metric.label} metric={metric} />
-                    ))}
-                  </div>
-                )}
+                </motion.ul>
               </motion.div>
             )}
           </AnimatePresence>

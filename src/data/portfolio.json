@@ -109,59 +109,46 @@
           "Spring Boot microservices with Eureka, API Gateway, PostgreSQL for structured data and MongoDB for flexible schemas.",
           "Real-time video interviews via WebRTC and WebSocket signaling; Razorpay for payments.",
           "Redis caching for faster responses and better overall performance."
+        ]
+      },
+      {
+        "id": "geofence",
+        "shortName": "Geofencing",
+        "tagline": "Full-stack geofencing and fleet tracking: Go + PostGIS API, JWT auth, WebSocket alerts, Next.js dashboard, Dockerized deployment.",
+        "title": "Geofencing & Vehicle Tracking Platform — Personal / Portfolio",
+        "summary": "Full-stack application for defining geographic boundaries, tracking vehicles, and detecting zone violations. Backend exposes a REST API with JWT authentication, spatial data in PostGIS, and real-time alert delivery over WebSockets; frontend is a Next.js dashboard for geofences, fleet vehicles, alert configuration, and violation history. Packaged for deployment with multi-stage Docker builds and an optional single-container image running API and UI together.",
+        "githubLinks": [
+          "https://github.com/hellfire20031998/Geofencing-backend",
+          "https://github.com/hellfire20031998/Geofencing-frontend"
         ],
-        "metrics": [
-          {
-            "label": "Multi-tenant & isolation",
-            "value": 94,
-            "color": "rgba(139, 92, 246, 0.7)",
-            "customLabel": "Tenant-scoped ATS design"
-          },
-          {
-            "label": "Real-time interviews",
-            "value": 88,
-            "color": "rgba(59, 130, 246, 0.7)",
-            "customLabel": "WebRTC + WebSocket signaling"
-          },
-          {
-            "label": "Caching layer",
-            "value": 82,
-            "color": "rgba(16, 185, 129, 0.7)",
-            "customLabel": "Redis for API latency"
-          }
+        "liveLink": "https://geofencing-frontend-five.vercel.app/",
+        "stack": "Go, PostgreSQL + PostGIS, Next.js (TypeScript), REST API, WebSockets, JWT auth, Docker & Docker Compose",
+        "bullets": [
+          "Architected and implemented a Go HTTP API with PostgreSQL/PostGIS for spatial geofences and vehicle location storage, including SQL migrations applied on startup.",
+          "Built JWT-based authentication and protected REST routes for geofences, vehicles, location ingestion, alert configuration, and violation history.",
+          "Implemented WebSocket-based live alerts so the dashboard receives geofence violations in real time.",
+          "Developed a Next.js dashboard for managing geofences, vehicles, and alerts, integrated with the API and WebSocket endpoints.",
+          "Added rate limiting on vehicle location updates (configurable sliding window) to protect the API from abuse or noisy clients."
         ]
       },
       {
         "id": "food",
         "shortName": "Food ordering",
-        "tagline": "Full-stack + Kafka events",
-        "title": "Online Food Ordering Platform",
+        "tagline": "Full-stack food ordering app: Spring Boot REST API (JWT, JPA, MySQL) and React SPA (Redux Toolkit, MUI) with customer ordering and restaurant admin workflows.",
+        "title": "Online Food Ordering Platform | Full-Stack Web Application",
+        "summary": "Full-stack food delivery–style application where customers browse restaurants and menus, manage a cart and addresses, and place orders; restaurant operators use an admin area for menus, categories, ingredients, orders, and roles. The backend exposes a secured REST API with JWT-based auth; the SPA consumes it with Redux-managed state and role-based routing for customer vs. admin experiences.",
         "githubLinks": [
           "https://github.com/hellfire20031998/Online-Food-Ordering",
           "https://github.com/hellfire20031998/Online-food-ordering-Frontend-"
         ],
         "liveLink": "",
-        "stack": "Java, Spring Boot, MySQL, React, Redis, Kafka, Stripe",
+        "stack": "Java 17, Spring Boot 3, Spring Security, JWT, Spring Data JPA, MySQL, REST APIs, Maven · React 19, Redux Toolkit, React Router, Axios, Material UI, Formik, Yup, i18next, Tailwind CSS, Create React App",
         "bullets": [
-          "Full-stack ordering flow with REST APIs for menus, cart, and checkout.",
-          "Stripe integration for secure payments.",
-          "Event-driven design with Kafka for async order processing and notifications.",
-          "Optimized MySQL and Redis caching—~30% better data retrieval performance."
-        ],
-        "metrics": [
-          { "label": "Data retrieval performance", "value": 30, "color": "rgba(16, 185, 129, 0.7)" },
-          {
-            "label": "Async order pipeline",
-            "value": 86,
-            "color": "rgba(249, 115, 22, 0.7)",
-            "customLabel": "Kafka events & notifications"
-          },
-          {
-            "label": "Payments integration",
-            "value": 90,
-            "color": "rgba(59, 130, 246, 0.7)",
-            "customLabel": "Stripe checkout flow"
-          }
+          "Implemented JWT authentication, password hashing, and protected API routes on Spring Boot; integrated the React app via Axios and token handling (e.g. persistence / refresh of session client-side).",
+          "Modeled relational data (users, restaurants, menu items, cart, orders, addresses, payments) with JPA/Hibernate and MySQL; exposed consistent REST resources with DTOs and centralized error handling.",
+          "Built a React customer flow (discovery, restaurant details, cart, checkout-related UI, profile: orders, favorites, addresses) and an admin dashboard for restaurant, menu, category, ingredient, and order management.",
+          "Used Redux Toolkit for modular state (auth, restaurants, menu, cart, orders, ingredients, restaurant-side orders) and React Router for separate admin and customer route trees.",
+          "Delivered a responsive UI with Material UI, theming, and supporting libraries (Formik/Yup for forms, i18n where configured); documented API usage (e.g. Postman collection on backend)."
         ]
       },
       {
@@ -183,26 +170,6 @@
           "Implemented end-to-end message lifecycle states (SENT → DELIVERED → READ) synchronized between persistence, realtime events, and UI indicators.",
           "Added email verification for registration; integrated Resend (HTTPS API) for production email delivery where cloud SMTP ports are blocked, with SMTP fallback for local development.",
           "Integrated WebRTC call flows by reusing the existing STOMP channel for signaling (invite/offer/answer/ICE/hangup)."
-        ],
-        "metrics": [
-          {
-            "label": "Realtime messaging",
-            "value": 92,
-            "color": "rgba(59, 130, 246, 0.7)",
-            "customLabel": "REST + STOMP/SockJS · lifecycle states"
-          },
-          {
-            "label": "Auth & delivery",
-            "value": 88,
-            "color": "rgba(16, 185, 129, 0.7)",
-            "customLabel": "JWT · email verify · Resend/SMTP"
-          },
-          {
-            "label": "Calls & ops",
-            "value": 85,
-            "color": "rgba(139, 92, 246, 0.7)",
-            "customLabel": "WebRTC over STOMP · Docker · Render/Vercel"
-          }
         ]
       }
     ],

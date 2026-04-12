@@ -3,10 +3,10 @@ import { resumeData } from '@/data/resumeData';
 import { easeOut, sectionReveal } from '@/lib/motion';
 
 const cardMotion = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 26, filter: 'blur(6px)' },
+  whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
   viewport: { once: true, margin: '-40px' },
-  transition: { duration: 0.5, ease: easeOut },
+  transition: { duration: 0.55, ease: easeOut },
 };
 
 const cardClass =
@@ -26,10 +26,10 @@ export function AchievementsAndEducationSection() {
             <motion.li
               key={ach.title}
               className="flex items-start gap-3 sm:gap-4"
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -14, filter: 'blur(4px)' }}
+              whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: 0.08 * i, ease: easeOut }}
+              transition={{ duration: 0.4, delay: 0.07 * i, ease: easeOut }}
             >
               <span className="text-xl sm:text-2xl shrink-0 drop-shadow-[0_0_12px_rgba(139,92,246,0.35)]" aria-hidden>
                 {ach.icon}

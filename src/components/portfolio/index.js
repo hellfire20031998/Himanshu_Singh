@@ -3,7 +3,6 @@ export { Header } from './Header';
 export { Footer } from './Footer';
 export { SocialLink } from './SocialLink';
 export { SkillsChart } from './SkillsChart';
-export { MetricChart } from './MetricChart';
 export { TabbedPanel } from './TabbedPanel';
 export { SummarySection } from './sections/SummarySection';
 export { SkillsSection } from './sections/SkillsSection';

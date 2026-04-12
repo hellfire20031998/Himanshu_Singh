@@ -28,16 +28,6 @@ export function GlobalStyles() {
           max-height: 420px;
         }
       }
-      .metric-chart-container {
-        position: relative;
-        width: 100%;
-        height: 24px;
-      }
-      @media (min-width: 640px) {
-        .metric-chart-container {
-          height: 26px;
-        }
-      }
       .nav-link {
         transition: color 0.2s ease;
       }

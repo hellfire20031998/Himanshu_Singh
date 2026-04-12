@@ -2,7 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { resumeData } from '@/data/resumeData';
-import { sectionReveal, staggerContainer, staggerItem } from '@/lib/motion';
+import {
+  bulletStaggerContainer,
+  bulletStaggerItem,
+  sectionReveal,
+  sectionSubtitleMotion,
+  sectionTitleMotion,
+  springPop,
+  staggerContainer,
+  staggerItemProminent,
+} from '@/lib/motion';
 
 /** Dot colors cycle for each role; ring matches page background so the track reads cleanly. */
 const DOT_RING = 'ring-2 ring-[color:var(--background)]';
@@ -24,21 +33,12 @@ export function WorkExperienceSection() {
       className="mb-16 sm:mb-20 scroll-mt-[calc(3.5rem+env(safe-area-inset-top))] sm:scroll-mt-20"
       {...sectionReveal}
     >
-      <motion.h2
-        className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1"
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45 }}
-      >
+      <motion.h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center text-balance px-1" {...sectionTitleMotion}>
         Experience
       </motion.h2>
       <motion.p
         className="text-center text-zinc-500 mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base px-1 text-pretty"
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, delay: 0.06 }}
+        {...sectionSubtitleMotion}
       >
         Roles aligned with my resume—backend, full stack, and shipping in production environments.
       </motion.p>
@@ -54,12 +54,16 @@ export function WorkExperienceSection() {
           {jobs.map((job, index) => (
             <motion.article
               key={job.id}
-              variants={staggerItem}
+              variants={staggerItemProminent}
               className="relative min-w-0"
             >
-              <div
+              <motion.div
                 className={`absolute top-1.5 sm:top-2 size-3 sm:size-3.5 rounded-full -translate-x-1/2 left-[calc(-2rem-1px)] sm:left-[calc(-2.5rem-1px)] ${DOT_RING} ${DOT_COLORS[index % DOT_COLORS.length]}`}
                 aria-hidden
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={springPop}
               />
               <div className={entryCard}>
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 text-pretty">
@@ -67,11 +71,19 @@ export function WorkExperienceSection() {
                 </h3>
                 <p className="text-sm font-medium text-violet-400/90 mb-1 break-words">{job.company}</p>
                 <p className="text-xs text-zinc-500 mb-4 break-words">{job.period}</p>
-                <ul className="list-disc pl-4 sm:pl-5 space-y-2.5 text-zinc-400 marker:text-violet-500/80 text-sm sm:text-base [word-break:break-word]">
+                <motion.ul
+                  className="list-disc pl-4 sm:pl-5 space-y-2.5 text-zinc-400 marker:text-violet-500/80 text-sm sm:text-base [word-break:break-word]"
+                  variants={bulletStaggerContainer}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.25 }}
+                >
                   {job.bullets.map((b, i) => (
-                    <li key={i}>{b}</li>
+                    <motion.li key={i} variants={bulletStaggerItem}>
+                      {b}
+                    </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
               </div>
             </motion.article>
           ))}

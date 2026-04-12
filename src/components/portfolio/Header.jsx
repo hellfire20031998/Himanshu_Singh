@@ -1,40 +1,50 @@
+'use client';
+
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionTemplate, useScroll, useTransform } from 'framer-motion';
 import { site } from '@/data/resumeData';
-import { headerMotion } from '@/lib/motion';
+import { headerMotion, navLinkItem, navStaggerContainer } from '@/lib/motion';
 
 const linkClass =
   'nav-link text-zinc-400 px-3 py-3 sm:py-2 rounded-lg text-sm font-medium transition-colors duration-200 min-h-11 sm:min-h-0 inline-flex items-center';
 const resumeLinkClass =
   'inline-flex items-center justify-center px-3 py-3 sm:py-2 rounded-lg text-sm font-semibold min-h-11 sm:min-h-0 text-white bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-200 shadow-[0_8px_20px_rgba(124,58,237,0.28)]';
 
+const NAV_LINKS = [
+  { href: '#summary', label: 'Summary' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#achievements', label: 'Achievements' },
+  { href: '#contact', label: 'Contact' },
+];
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const shadowAlpha = useTransform(scrollY, [0, 72], [0.34, 0.52]);
+  const headerShadow = useMotionTemplate`0 4px 28px rgba(0,0,0,${shadowAlpha}), 0 12px 40px -8px rgba(0,0,0,${shadowAlpha})`;
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = (
-    <div className="flex flex-col md:flex-row md:items-center md:space-x-0.5 lg:space-x-1 space-y-0 md:space-y-0 py-1 md:py-0">
-      <a href="#summary" onClick={() => setIsMenuOpen(false)} className={linkClass}>
-        Summary
-      </a>
-      <a href="#skills" onClick={() => setIsMenuOpen(false)} className={linkClass}>
-        Skills
-      </a>
-      <a href="#experience" onClick={() => setIsMenuOpen(false)} className={linkClass}>
-        Experience
-      </a>
-      <a href="#projects" onClick={() => setIsMenuOpen(false)} className={linkClass}>
-        Projects
-      </a>
-      <a href="#achievements" onClick={() => setIsMenuOpen(false)} className={linkClass}>
-        Achievements
-      </a>
-      <a href="#contact" onClick={() => setIsMenuOpen(false)} className={linkClass}>
-        Contact
-      </a>
-      <a
+    <>
+      {NAV_LINKS.map(({ href, label }) => (
+        <motion.a
+          key={href}
+          href={href}
+          variants={navLinkItem}
+          onClick={closeMenu}
+          className={linkClass}
+        >
+          {label}
+        </motion.a>
+      ))}
+      <motion.a
         href="/Himanshu-Singh-Resume.pdf"
         download="Himanshu-Singh-Resume.pdf"
-        onClick={() => setIsMenuOpen(false)}
+        variants={navLinkItem}
+        onClick={closeMenu}
         className={resumeLinkClass}
       >
         <svg
@@ -49,13 +59,14 @@ export function Header() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1" />
         </svg>
         Resume
-      </a>
-    </div>
+      </motion.a>
+    </>
   );
 
   return (
     <motion.header
-      className="sticky top-0 z-50 border-b border-white/[0.08] bg-zinc-950/75 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.35)] supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]"
+      className="sticky top-0 z-50 border-b border-white/[0.08] bg-zinc-950/75 backdrop-blur-xl supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]"
+      style={{ boxShadow: headerShadow }}
       {...headerMotion}
     >
       <nav
@@ -64,14 +75,24 @@ export function Header() {
       >
         <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="flex-shrink-0 min-w-0 pr-2">
-            <a
+            <motion.a
               href="#summary"
-              className="text-base sm:text-lg md:text-xl font-bold tracking-tight bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent transition-opacity duration-200 hover:opacity-90 truncate max-w-[70vw] sm:max-w-none inline-block"
+              className="text-base sm:text-lg md:text-xl font-bold tracking-tight bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent truncate max-w-[70vw] sm:max-w-none inline-block"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 24 }}
             >
               {site.displayName}
-            </a>
+            </motion.a>
           </div>
-          <div className="hidden md:flex md:flex-wrap md:justify-end md:gap-0 lg:gap-1">{navLinks}</div>
+          <motion.div
+            className="hidden md:flex md:flex-row md:flex-wrap md:items-center md:justify-end md:gap-0 lg:gap-1"
+            variants={navStaggerContainer}
+            initial="hidden"
+            animate="show"
+          >
+            {navLinks}
+          </motion.div>
           <div className="md:hidden">
             <motion.button
               type="button"
@@ -113,10 +134,17 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden overflow-hidden border-t border-white/[0.08] bg-zinc-950/95"
           >
-            <div className="px-2 sm:px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))]">{navLinks}</div>
+            <motion.div
+              className="px-2 sm:px-3 pb-[max(1rem,env(safe-area-inset-bottom,0px))] flex flex-col gap-0.5 py-2"
+              variants={navStaggerContainer}
+              initial="hidden"
+              animate="show"
+            >
+              {navLinks}
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

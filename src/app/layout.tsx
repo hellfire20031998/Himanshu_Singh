@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LenisRoot } from "@/components/providers/LenisRoot";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 import portfolio from "@/data/portfolio.json";
 import "./globals.css";
 
@@ -36,7 +37,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-dvh overflow-x-clip touch-manipulation`}
       >
-        <LenisRoot>{children}</LenisRoot>
+        <LenisRoot>
+          <MotionProvider>{children}</MotionProvider>
+        </LenisRoot>
       </body>
     </html>
   );
