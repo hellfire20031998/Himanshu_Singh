@@ -63,15 +63,6 @@
           "Integrating Next.js frontends with backend APIs for end-to-end product delivery.",
           "Automating CI/CD with Jenkins to speed up deployments.",
           "Reviewing pull requests and upholding code quality standards."
-        ],
-        "metrics": [
-          { "label": "API performance improvement", "value": 20, "color": "rgba(59, 130, 246, 0.7)" },
-          {
-            "label": "Full-stack delivery focus",
-            "value": 85,
-            "color": "rgba(16, 185, 129, 0.7)",
-            "customLabel": "Next.js + Spring Boot APIs"
-          }
         ]
       },
       {
@@ -85,20 +76,6 @@
           "Reduced latency by optimizing queries, trimming payloads, and introducing Redis caching.",
           "Increased throughput and lowered database load with in-memory and distributed caching for high-frequency paths.",
           "Contributed to backend architecture for reliable inter-service communication and data consistency."
-        ],
-        "metrics": [
-          {
-            "label": "High-traffic path caching",
-            "value": 78,
-            "color": "rgba(239, 68, 68, 0.7)",
-            "customLabel": "Redis + in-memory (hot paths)"
-          },
-          {
-            "label": "API surface (business domains)",
-            "value": 92,
-            "color": "rgba(59, 130, 246, 0.7)",
-            "customLabel": "CRM · settlement · logistics"
-          }
         ]
       },
       {
@@ -112,13 +89,6 @@
           "Improved frontend components—higher engagement (~20%), better UX (~25%).",
           "Shipped cron-based push notifications, boosting engagement ~15%.",
           "Designed email automation that reduced manual operational effort ~40%."
-        ],
-        "metrics": [
-          { "label": "Reduction in API response time", "value": 30, "color": "rgba(16, 185, 129, 0.7)" },
-          { "label": "Increase in customer engagement", "value": 20, "color": "rgba(59, 130, 246, 0.7)" },
-          { "label": "Improvement in user satisfaction (UX)", "value": 25, "color": "rgba(59, 130, 246, 0.7)" },
-          { "label": "Lift from push notifications", "value": 15, "color": "rgba(249, 115, 22, 0.7)" },
-          { "label": "Reduction in manual workload", "value": 40, "color": "rgba(16, 185, 129, 0.7)" }
         ]
       }
     ],
