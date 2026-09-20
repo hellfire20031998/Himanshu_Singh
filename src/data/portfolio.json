@@ -141,7 +141,7 @@
           "https://github.com/hellfire20031998/Online-Food-Ordering",
           "https://github.com/hellfire20031998/Online-food-ordering-Frontend-"
         ],
-        "liveLink": "",
+        "liveLink": "https://foodiyapa.vercel.app/",
         "stack": "Java 17, Spring Boot 3, Spring Security, JWT, Spring Data JPA, MySQL, REST APIs, Maven · React 19, Redux Toolkit, React Router, Axios, Material UI, Formik, Yup, i18next, Tailwind CSS, Create React App",
         "bullets": [
           "Implemented JWT authentication, password hashing, and protected API routes on Spring Boot; integrated the React app via Axios and token handling (e.g. persistence / refresh of session client-side).",
