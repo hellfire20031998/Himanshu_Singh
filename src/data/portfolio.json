@@ -1,8 +1,8 @@
 {
   "site": {
     "displayName": "Himanshu Singh",
-    "title": "Himanshu Singh | Backend Engineer",
-    "description": "Backend engineer specializing in Java, Spring Boot, microservices, Redis, Kafka, and distributed systems. Portfolio and resume."
+    "title": "Himanshu Singh | Java Backend / Full Stack Engineer",
+    "description": "Java Backend and Full Stack Engineer with 2+ years of experience in Spring Boot microservices, PostgreSQL, MySQL, MongoDB, Redis, AWS, OpenShift, and React/Next.js. Portfolio and resume."
   },
   "social": {
     "linkedin": "https://www.linkedin.com/in/himanshu-singh-6ab01b179/",
@@ -16,7 +16,8 @@
       "rgba(249, 115, 22, 0.7)",
       "rgba(139, 92, 246, 0.7)",
       "rgba(239, 68, 68, 0.7)",
-      "rgba(14, 165, 233, 0.7)"
+      "rgba(14, 165, 233, 0.7)",
+      "rgba(236, 72, 153, 0.7)"
     ],
     "border": [
       "rgba(59, 130, 246, 1)",
@@ -24,30 +25,64 @@
       "rgba(249, 115, 22, 1)",
       "rgba(139, 92, 246, 1)",
       "rgba(239, 68, 68, 1)",
-      "rgba(14, 165, 233, 1)"
+      "rgba(14, 165, 233, 1)",
+      "rgba(236, 72, 153, 1)"
     ]
   },
   "resume": {
-    "headline": "Backend Engineer",
-    "headlineTrack": "Java · Microservices · Distributed Systems",
-    "summary": "Backend-focused engineer with 2+ years of experience building scalable, high-performance systems using Java, Spring Boot, and microservices. I optimize APIs, improve throughput, and design distributed workflows for real-world products. Strong in DSA, system design, and performance engineering—with hands-on use of Redis, Kafka, and WebRTC.",
+    "headline": "Java Backend / Full Stack Engineer",
+    "headlineTrack": "Java 17 · Spring Boot · Microservices · React / Next.js",
+    "summary": "Java Backend and Full Stack Engineer with 2+ years of experience building REST APIs, Spring Boot microservices, and real-time systems for CRM, logistics, and SaaS products. Strong in Java 17, Spring Boot, Spring Cloud, Hibernate, PostgreSQL, MySQL, MongoDB, Redis, and AWS, with production experience on OpenShift and Jenkins CI/CD and frontend delivery in React and Next.js. Test-driven with JUnit, Mockito, and Postman; additional experience in Go (Gin) and the MERN stack.",
     "contact": {
       "email": "tonu8707@gmail.com",
       "phone": "+91-8707838102"
     },
     "skills": {
-      "Languages": ["Java", "JavaScript"],
-      "Backend": ["Spring Boot", "Node.js", "Express.js", "Spring AI", "LLM Integration"],
-      "Frontend": ["React", "Next.js"],
-      "Databases": ["MySQL", "PostgreSQL", "MongoDB"],
-      "Tools": ["Redis", "Kafka", "AWS", "Jenkins", "Git"],
-      "Core concepts": [
-        "Microservices",
-        "Distributed systems",
-        "System design",
+      "Languages": ["Java 17", "JavaScript", "TypeScript", "SQL", "Go (Golang)", "Python"],
+      "Backend": [
+        "Spring Boot",
+        "Spring Cloud",
+        "API Gateway",
+        "Spring Security",
+        "Spring Data JPA",
+        "Hibernate",
+        "Spring Batch",
+        "Spring Scheduler",
+        "Spring AI",
         "REST APIs",
-        "AI integration",
-        "Prompt engineering"
+        "Microservices",
+        "WebSockets (STOMP)",
+        "WebRTC",
+        "JWT",
+        "OAuth2",
+        "Node.js",
+        "Express.js",
+        "Gin"
+      ],
+      "Databases & Messaging": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Kafka", "PostGIS"],
+      "Testing & Tooling": [
+        "JUnit 5",
+        "Mockito",
+        "Postman",
+        "Integration Testing",
+        "Swagger / OpenAPI",
+        "Log4j",
+        "Maven",
+        "Gradle",
+        "Git"
+      ],
+      "Cloud & DevOps": ["AWS (S3, EC2)", "OpenShift", "Docker", "Kubernetes", "Jenkins", "CI/CD", "Linux"],
+      "Frontend": ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+      "Practices & Concepts": [
+        "Agile / Scrum",
+        "ClickUp",
+        "Distributed Systems",
+        "System Design",
+        "Low-Level Design",
+        "Event-driven Architecture",
+        "Caching",
+        "Concurrency Control",
+        "LLM Integration"
       ]
     },
     "workExperience": [
@@ -56,13 +91,13 @@
         "role": "Full Stack Developer",
         "company": "Natlov Technologies Pvt Ltd",
         "period": "Jan 2026 – Present",
-        "stack": "Java, Spring Boot, Next.js, Jenkins",
+        "stack": "Java 17, Spring Boot, Spring Cloud, Hibernate, PostgreSQL, MySQL, Next.js, Maven, Swagger, Log4j, OpenShift, Jenkins, Agile/Scrum",
         "bullets": [
-          "Developing and scaling backend services with Java and Spring Boot, focusing on performance and clean architecture.",
-          "Improved API performance by ~20% and enhanced reliability by optimizing services and resolving production issues.",
-          "Integrating Next.js frontends with backend APIs for end-to-end product delivery.",
-          "Automating CI/CD with Jenkins to speed up deployments.",
-          "Reviewing pull requests and upholding code quality standards."
+          "Built and maintained Java 17 / Spring Boot microservices behind a Spring Cloud API Gateway, with Hibernate persistence on PostgreSQL and MySQL, Swagger / OpenAPI documented REST contracts, and structured Log4j logging; built with Maven in Agile / Scrum sprints.",
+          "Designed a concurrent-editing protection mechanism (version-based optimistic locking with conflict detection at the database layer) for collaborative workflows, cutting conflicting updates by 80% and preserving data integrity.",
+          "Reduced average API response time by 40% (500 ms to 300 ms) by moving heavy work to asynchronous processing and Spring Batch jobs with scheduled triggers for large-volume report calculation, and by tuning Hibernate queries and database indexes.",
+          "Integrated third-party vendor systems over REST, handling authentication, request/response mapping, retries, and error handling to keep vendor workflows reliable.",
+          "Automated build and deployment pipelines with Jenkins CI/CD deploying to OpenShift, halving deployment time from 20 min to 10 min; wrote JUnit 5 / Mockito unit and integration tests, maintained Postman regression collections, and reviewed pull requests."
         ]
       },
       {
@@ -70,12 +105,13 @@
         "role": "Backend Engineer",
         "company": "Railse",
         "period": "Nov 2024 – Dec 2025",
-        "stack": "Java, Spring Boot, Redis, microservices, REST",
+        "stack": "Java, Spring Boot, Hibernate, Gradle, PostgreSQL, MySQL, MongoDB, Redis, AWS, Jenkins, Log4j, JUnit, Mockito, Agile",
         "bullets": [
-          "Designed and scaled REST APIs for CRM reporting, payment settlement, and logistics in a distributed microservices architecture.",
-          "Reduced latency by optimizing queries, trimming payloads, and introducing Redis caching.",
-          "Increased throughput and lowered database load with in-memory and distributed caching for high-frequency paths.",
-          "Contributed to backend architecture for reliable inter-service communication and data consistency."
+          "Designed and scaled RESTful microservices in Java / Spring Boot with Hibernate, built with Gradle, for CRM and logistics workflows, owning inter-service communication and data-consistency guarantees across PostgreSQL, MySQL, and MongoDB stores.",
+          "Improved API latency by 30–40% and cut database load by ~35% through SQL query optimization, MongoDB indexing, and Redis caching.",
+          "Built real-time, event-driven features over WebSockets for logistics conversations and live shipment updates.",
+          "Developed chat-based logistics coordination workflows with secure storage of bills and quotes on AWS S3; maintained Jenkins pipelines, Log4j logging, JUnit / Mockito unit tests, and Postman API contract checks as part of each release.",
+          "Mentored an engineering intern, onboarding them to the codebase and current workflows, reviewing their code, and guiding feature delivery in an Agile team tracked in ClickUp."
         ]
       },
       {
@@ -83,12 +119,10 @@
         "role": "Engineering Intern",
         "company": "Otusone LLP",
         "period": "Feb 2023 – Nov 2023",
-        "stack": "E-commerce, REST APIs, full-stack",
+        "stack": "MERN: MongoDB, Express.js, React, Node.js",
         "bullets": [
-          "Built and optimized REST APIs for orders and products, cutting response time by ~30%.",
-          "Improved frontend components—higher engagement (~20%), better UX (~25%).",
-          "Shipped cron-based push notifications, boosting engagement ~15%.",
-          "Designed email automation that reduced manual operational effort ~40%."
+          "Built and optimized Node.js / Express.js REST APIs backed by MongoDB for order and product management, improving response time by ~30%; tested endpoints with Postman.",
+          "Implemented cron-based notification and automated email workflows, reducing manual operational effort by ~40%; developed React frontend components."
         ]
       }
     ],
@@ -103,12 +137,13 @@
           "https://github.com/hellfire20031998/HireFlow-Client"
         ],
         "liveLink": "",
-        "stack": "Java, Spring Boot, microservices, Next.js, PostgreSQL, MongoDB, AWS, Redis, WebRTC",
+        "stack": "Java, Spring Boot, Spring Cloud API Gateway, Eureka, PostgreSQL, MongoDB, Redis, AWS, WebRTC, Log4j, JUnit, Mockito, Next.js",
         "bullets": [
           "Architected a scalable multi-tenant ATS with strong tenant isolation and smooth onboarding.",
-          "Spring Boot microservices with Eureka, API Gateway, PostgreSQL for structured data and MongoDB for flexible schemas.",
+          "Spring Boot microservices routed through a Spring Cloud API Gateway with Eureka service discovery; PostgreSQL for structured data and MongoDB for flexible schemas.",
           "Real-time video interviews via WebRTC and WebSocket signaling; Razorpay for payments.",
-          "Redis caching for faster responses and better overall performance."
+          "Redis caching for faster responses and better overall performance.",
+          "Services unit-tested with JUnit and Mockito, REST APIs verified through Postman collections, and structured Log4j logging across services."
         ]
       },
       {
@@ -162,38 +197,44 @@
           "https://github.com/hellfire20031998/ChatApp-Ui"
         ],
         "liveLink": "https://chat-app-ui-rouge.vercel.app/",
-        "stack": "Spring Boot, Spring Security, MongoDB, WebSocket/STOMP, JWT, Next.js, TypeScript, Tailwind, Docker, Resend, WebRTC",
+        "stack": "Spring Boot, Spring Security, MongoDB, WebSocket/STOMP, JWT, Log4j, JUnit, Mockito, Next.js, TypeScript, Tailwind, Docker, Resend, WebRTC",
         "bullets": [
           "Architected and implemented a REST + WebSocket (STOMP/SockJS) backend in Java 17 / Spring Boot with JWT securing HTTP and WebSocket handshakes.",
           "Designed MongoDB data models for users, chats, and messages; used a deterministic direct-chat key with unique indexing to prevent duplicate 1:1 threads under concurrency.",
           "Built a Next.js (React + TypeScript) client with real-time UI updates, paginated message history, unread counts, optimistic sends, and group management flows.",
           "Implemented end-to-end message lifecycle states (SENT → DELIVERED → READ) synchronized between persistence, realtime events, and UI indicators.",
           "Added email verification for registration; integrated Resend (HTTPS API) for production email delivery where cloud SMTP ports are blocked, with SMTP fallback for local development.",
-          "Integrated WebRTC call flows by reusing the existing STOMP channel for signaling (invite/offer/answer/ICE/hangup)."
+          "Integrated WebRTC call flows by reusing the existing STOMP channel for signaling (invite/offer/answer/ICE/hangup).",
+          "Core services covered by JUnit / Mockito tests with Log4j logging for observability."
         ]
       }
     ],
     "achievements": [
       {
-        "icon": "☕",
-        "title": "Java & JVM",
-        "text": "Strong fundamentals including multithreading and JVM internals."
-      },
-      {
-        "icon": "🏗️",
-        "title": "System design",
-        "text": "Scalable system design and distributed architecture patterns."
+        "icon": "🎓",
+        "title": "Scaler Academy — Software Development & System Design (Nov 2023 – Nov 2024)",
+        "text": "Full-time program covering Java, Spring Boot, SQL, Low-Level Design, and Docker & Kubernetes."
       },
       {
         "icon": "🧠",
         "title": "DSA",
         "text": "600+ problems on LeetCode and Scaler—sharp problem-solving and algorithms."
+      },
+      {
+        "icon": "⚡",
+        "title": "Performance & delivery",
+        "text": "Cut API response time by 40% (500 ms → 300 ms) and deployment time by 50% (20 min → 10 min) at Natlov."
+      },
+      {
+        "icon": "🤝",
+        "title": "Mentoring",
+        "text": "Mentored an engineering intern at Railse—onboarding, code reviews, and guided feature delivery in an Agile team."
       }
     ],
     "education": {
       "university": "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
       "degree": "B.Tech, Electrical Engineering",
-      "year": "2020"
+      "year": "2016 – 2020"
     }
   }
 }
